@@ -1,0 +1,44 @@
+﻿<StoreFramework:BaseStorePage
+    x:Class="DK.UOME.Store.UI.WindowsPhone.Views.EntryGroupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DK.UOME.Store.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:StoreFramework="using:DK.Framework.Store"
+    mc:Ignorable="d"
+    xmlns:Converters="using:DK.UOME.Store.UI.Converters"
+    xmlns:DesignData="using:DK.UOME.Store.UI.DesignData"
+    d:DataContext="{d:DesignInstance Type=DesignData:DesignEntryGroupViewModel, IsDesignTimeCreatable=True}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StoreFramework:BaseStorePage.Resources>
+        <Converters:EntryTypeToVisibilityConverter x:Key="EntryTypeToVisibilityConverter"/>
+    </StoreFramework:BaseStorePage.Resources>
+
+    <StoreFramework:BaseStorePage.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Command="{Binding DeleteEntriesCommand}" Label="Delete" Icon="Delete"/>
+            <AppBarButton Grid.Column="1" Command="{Binding AddNewEntryCommand}" CommandParameter="Borrowed" Visibility="{Binding EntryGroup.Type, ConverterParameter=Borrowed, Converter={StaticResource EntryTypeToVisibilityConverter}}" Label="Add Borrowed" Icon="Add" />
+            <AppBarButton Grid.Column="2" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned" Visibility="{Binding EntryGroup.Type, ConverterParameter=Loaned, Converter={StaticResource EntryTypeToVisibilityConverter}}" Label="Add Loaned" Icon="Add" />
+        </CommandBar>
+    </StoreFramework:BaseStorePage.BottomAppBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="pageTitle" Text="{Binding EntryGroup.Name}" />
+
+        <ListView
+            Grid.Row="1"
+            TabIndex="1"
+            ItemsSource="{Binding EntryGroup.Items}"
+            ItemTemplate="{StaticResource CompactEntryTemplate}"
+            SelectionMode="Multiple" 
+            IsItemClickEnabled="True" 
+			ItemClick="OnEntryItemClicked"/>
+    </Grid>
+</StoreFramework:BaseStorePage>

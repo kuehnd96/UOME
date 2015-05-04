@@ -1,0 +1,148 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DK.UOME.Store.UI">
+
+    <DataTemplate x:Key="LandingCompleteEntryTemplate">
+        <Grid>
+            <Grid Visibility="{Binding HasItem, Converter={StaticResource VisibilityConverter}}"
+           HorizontalAlignment="Left" 
+           Margin="0, 3, 0, 3" 
+           Width="200" 
+           Height="150" 
+           Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Rectangle Fill="Green" Height="16" Width="16" VerticalAlignment="Top" Margin="5, 7, 5, 5" HorizontalAlignment="Left" />
+
+                <TextBlock Text="{Binding Thing.Thing}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" VerticalAlignment="Top" FontWeight="Bold" FontSize="21.333" Grid.Column="1" TextWrapping="Wrap"/>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                        <Run Text="{Binding Thing.OtherPartyLabel}"/>
+                        <Run Text=": "/>
+                        <Run Text="{Binding Thing.OtherParty}"/>
+                </TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
+                        <Run Text="Due: "/>
+                        <Run Text="{Binding Thing.FormattedDueDate}"/>
+                </TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1">
+                        <Run Text="Created: "/>
+                        <Run Text="{Binding Thing.FormattedCreateDate}" />
+                </TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" Grid.Column="1">
+                        <Run Text="Note: "/>
+                        <Run Text="{Binding Thing.Note}"/>
+                </TextBlock>
+            </Grid>
+
+            <Grid Visibility="{Binding HasItem, Converter={StaticResource VisibilityConverter}, ConverterParameter=false}" Background="Blue" Width="200" Height="150">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Label}" VerticalAlignment="Bottom" Margin="15,0,0,50"/>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CompleteEntryTemplate">
+        <Grid HorizontalAlignment="Left" Margin="0, 3, 0, 3" Width="200" Height="150" Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Rectangle Fill="Green" Height="16" Width="16" VerticalAlignment="Top" Margin="5, 7, 5, 5" HorizontalAlignment="Left" />
+
+            <TextBlock Text="{Binding Thing}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" VerticalAlignment="Top" FontWeight="Bold" FontSize="21.333" Grid.Column="1" TextWrapping="Wrap"/>
+
+            <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                        <Run Text="{Binding OtherPartyLabel}"/>
+                        <Run Text=": "/>
+                        <Run Text="{Binding OtherParty}"/>
+            </TextBlock>
+
+            <TextBlock HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1">
+                        <Run Text="Due: "/>
+                        <Run Text="{Binding FormattedDueDate}"/>
+            </TextBlock>
+
+            <TextBlock HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" Grid.Column="1" TextTrimming="WordEllipsis">
+                        <Run Text="Note: "/>
+                        <Run Text="{Binding Note}"/>
+            </TextBlock>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CompactEntryTemplate">
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="Green" Height="16" Width="16" VerticalAlignment="Top" Margin="2, 7, 2, 0" HorizontalAlignment="Left" />
+
+            <TextBlock Text="{Binding Thing}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" VerticalAlignment="Top" FontWeight="Bold" FontSize="21.333" Grid.Column="1" TextWrapping="Wrap"/>
+
+            <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                        <Run Text="{Binding OtherPartyLabel}"/>
+                        <Run Text=": "/>
+                        <Run Text="{Binding OtherParty}"/>
+            </TextBlock>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LandingCompactEntryTemplate">
+        <Grid>
+            <Grid Margin="6" Visibility="{Binding HasItem, Converter={StaticResource VisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="Green" Height="16" Width="16" VerticalAlignment="Top" Margin="2, 7, 2, 0" HorizontalAlignment="Left" />
+
+                <TextBlock Text="{Binding Thing.Thing}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" VerticalAlignment="Top" FontWeight="Bold" FontSize="21.333" Grid.Column="1" TextWrapping="Wrap"/>
+
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                        <Run Text="{Binding Thing.OtherPartyLabel}"/>
+                        <Run Text=": "/>
+                        <Run Text="{Binding Thing.OtherParty}"/>
+                </TextBlock>
+            </Grid>
+
+            <Grid Visibility="{Binding HasItem, Converter={StaticResource VisibilityConverter}, ConverterParameter=false}" Background="Blue">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Label}" VerticalAlignment="Bottom" Margin="5,0,0,5"/>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

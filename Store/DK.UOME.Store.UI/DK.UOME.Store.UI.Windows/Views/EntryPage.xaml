@@ -1,0 +1,108 @@
+﻿<StoreFramework:BaseStorePage
+    x:Class="DK.UOME.Store.UI.Windows.Views.EntryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DK.UOME.Store.UI.Windows.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:StoreFramework="using:DK.Framework.Store"
+    xmlns:CoreConverters="using:DK.Framework.Store.Converters"
+    xmlns:Telerik="using:Telerik.UI.Xaml.Controls"
+    xmlns:TelerikCore="using:Telerik.Core"
+    xmlns:viewModels="using:DK.UOME.Store.UI.ViewModels"
+    xmlns:Framework="using:DK.Framework.Store"
+    xmlns:DesignData="using:DK.UOME.Store.UI.DesignData"
+    d:DataContext="{d:DesignInstance Type=DesignData:DesignEntryViewModel, IsDesignTimeCreatable=True}"
+    mc:Ignorable="d">
+
+    <StoreFramework:BaseStorePage.Resources>
+        <CoreConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <CoreConverters:BooleanNegationConverter x:Key="NegationConverter"/>
+    </StoreFramework:BaseStorePage.Resources>
+
+<Framework:BaseStorePage.BottomAppBar>
+		<AppBar>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <AppBarButton x:Name="SecondaryTilePinButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Pin to Start" Icon="Pin" Visibility="{Binding IsEntryPinned, ConverterParameter=1, Converter={StaticResource BoolToVisibilityConverter}}" Click="OnSecondaryTilePinButtonClick" IsEnabled="{Binding IsNewEntry, Converter={StaticResource NegationConverter}}" />
+                <AppBarButton x:Name="SecondaryTileUnpinButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Unpin from Start" Icon="UnPin" Visibility="{Binding IsEntryPinned, Converter={StaticResource BoolToVisibilityConverter}}" Click="OnSecondaryTileUnpinButtonClick" IsEnabled="{Binding IsNewEntry, Converter={StaticResource NegationConverter}}" />
+            </StackPanel>
+        </AppBar>
+	</Framework:BaseStorePage.BottomAppBar>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+
+            <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+		<!-- Strip at top of screen -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Command="{Binding GoBackCommand}" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource NavigationBackButtonNormalStyle}" Margin="10" VerticalAlignment="Center"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Style="{StaticResource HeaderTextBlockStyle}" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Label}"/>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Margin="0,0,20,0" Orientation="Horizontal">
+                <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding SaveCommand}" Label="Save" Icon="Save"/>
+            	<AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding CancelCommand}" Label="Cancel" Icon="Cancel"/>
+            	<AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Label="Delete" Icon="Delete"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Main area of screen -->
+        <Grid Grid.Row="1" Margin="10, 0, 0, 0">
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+        	</Grid.RowDefinitions>
+
+			<Grid.Resources>
+                <Style x:Key="LabelStyle" TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="Margin" Value="0,15"/>
+                </Style>
+                
+                <Style x:Key="InputStyle" TargetType="TextBox">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="Width" Value="400"/>
+                </Style>
+
+                <Style x:Key="ErrorStyle" TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Style>
+            </Grid.Resources>
+
+        	<TextBlock Text="{Binding Entry.ThingLabel}" Style="{StaticResource LabelStyle}" />
+            <TextBox Text="{Binding Entry.Thing, Mode=TwoWay}" Framework:UpdateSourceHelper.IsEnabled="True" Framework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.Thing, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="1"/>
+            <TextBlock Grid.Row="2" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [Thing]}" Style="{StaticResource ErrorStyle}" />
+
+            <TextBlock Text="{Binding Entry.OtherPartyLabel}" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Entry.OtherParty, Mode=TwoWay}" Framework:UpdateSourceHelper.IsEnabled="True" Framework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.OtherParty, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="4"/>
+            <TextBlock Grid.Row="5" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [OtherParty]}" Style="{StaticResource ErrorStyle}" />
+
+            <TextBlock Text="Due Date" Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+            <TextBox Style="{StaticResource InputStyle}" Grid.Row="7" Text="{Binding Entry.DueDate}" />
+            <TextBlock Grid.Row="8" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [DueDate]}" Style="{StaticResource ErrorStyle}" />
+
+            <TextBlock Text="Notes" Grid.Row="9" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Entry.Note, Mode=TwoWay}" Grid.Row="10" Style="{StaticResource InputStyle}" Height="200" TextWrapping="Wrap"/>
+                       
+        </Grid>
+
+    </Grid>
+</StoreFramework:BaseStorePage>

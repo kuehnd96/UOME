@@ -1,0 +1,15 @@
+﻿@model DK.UOME.Web.UI.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Welcome to UOME";
+}
+
+<h2>UOME Home</h2>
+
+<span>Overdue Entries</span>
+<br />
+@Html.Partial("EntryList", Model.OverdueEntries)
+<br />
+<span>Next Due Entries</span>
+<br />
+@Html.Partial("EntryList", Model.NextDueEntries)

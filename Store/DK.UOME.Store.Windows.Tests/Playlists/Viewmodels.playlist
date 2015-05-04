@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="DK.UOME.Store.Windows.Tests.MainViewModelTests.MainGroupNavigationTest" /><Add Test="DK.UOME.Store.Windows.Tests.MainViewModelTests.MainEntryGroupsTest" /><Add Test="DK.UOME.Store.Windows.Tests.MainViewModelTests.MainDeletionPreventionTest" /></Playlist>

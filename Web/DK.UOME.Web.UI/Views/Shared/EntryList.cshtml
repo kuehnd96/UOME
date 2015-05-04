@@ -1,0 +1,58 @@
+﻿@model List<DK.UOME.Web.UI.DataModel.Entry>
+<!-- Creates a summary list of entries -->
+<ul>
+    @foreach (var entry in Model)
+    {
+        <li>
+            <table border="1">
+                <tr>
+                    <td>
+                        @if (entry.Type == DK.UOME.Web.UI.DataModel.EntryType.Borrowed)
+                        {
+                            <span>B</span>
+                        }
+                        else
+                        {
+                            <span>L</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => entry.Thing)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => entry.OtherPartyLabel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => entry.OtherParty)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Due Date:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => entry.DueDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Create Date:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => entry.CreateDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Note:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => entry.Note)
+                    </td>
+                </tr>
+            </table>
+        </li>
+    }
+</ul>

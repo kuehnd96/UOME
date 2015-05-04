@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="SharedProjectFile_SccProperties">
+    <SharedProjectFile_ProjectGuid>{b2e7519d-6db5-4b15-a7d3-ac6c06a22339}</SharedProjectFile_ProjectGuid>
+    <SharedProjectFile_SccProjectName>SAK</SharedProjectFile_SccProjectName>
+    <SharedProjectFile_SccAuxPath>SAK</SharedProjectFile_SccAuxPath>
+    <SharedProjectFile_SccLocalPath>SAK</SharedProjectFile_SccLocalPath>
+    <SharedProjectFile_SccProvider>SAK</SharedProjectFile_SccProvider>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>754555be-7f00-404e-b6c0-8f2a7ebd431e</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>DK.UOME.Store.UI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\EntryTypeToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ShortDateTimeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DesignData\DesignEntryGroupViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DesignData\DesignEntryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DesignData\DesignMainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationTarget.cs" />
+  </ItemGroup>
+</Project>

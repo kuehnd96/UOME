@@ -1,0 +1,83 @@
+﻿<StoreFramework:BaseStorePage
+    x:Class="DK.UOME.Store.UI.WindowsPhone.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DK.UOME.Store.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:StoreFramework="using:DK.Framework.Store"
+    mc:Ignorable="d"
+    xmlns:DesignData="using:DK.UOME.Store.UI.DesignData"
+    d:DataContext="{d:DesignInstance Type=DesignData:DesignMainViewModel, IsDesignTimeCreatable=True}">
+
+    <StoreFramework:BaseStorePage.Resources>
+	    <CollectionViewSource
+            x:Name="groupedItemsViewSource"
+            Source="{Binding EntryGroups}"
+            IsSourceGrouped="true"
+            ItemsPath="LandingItems"/>
+	</StoreFramework:BaseStorePage.Resources>
+
+    <StoreFramework:BaseStorePage.BottomAppBar>
+        <CommandBar>
+                <AppBarButton Command="{Binding AddNewEntryCommand}" CommandParameter="Borrowed" Icon="Add" Label="Add Borrowed" />
+                <AppBarButton Grid.Column="1" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned" Icon="Add" Label="Add Loaned" />
+        </CommandBar>
+    </StoreFramework:BaseStorePage.BottomAppBar>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Margin="19,0,0,0">
+            <TextBlock Text="UOME" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+        	<GridView 
+			ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}" 
+			ItemTemplate="{StaticResource LandingCompleteEntryTemplate}" 
+			SelectionMode="None" 
+			IsItemClickEnabled="True" 
+            ItemClick="OnEntryItemClicked">
+			
+			<GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="1,0,0,6">
+                                <Button
+                                    Content="{Binding Name}"
+                                    Command="{Binding ElementName=itemGridView, Path=DataContext.NavigateGroupCommand}" 
+                                    CommandParameter="{Binding}"/>    
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                </GroupStyle>
+            </GridView.GroupStyle>
+
+			</GridView>
+        </Grid>
+    </Grid>
+</StoreFramework:BaseStorePage>

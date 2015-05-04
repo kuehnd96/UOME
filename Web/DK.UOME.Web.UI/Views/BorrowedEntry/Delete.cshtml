@@ -1,0 +1,80 @@
+﻿@model DK.UOME.Web.UI.DataModel.BorrowedEntry
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BorrowedEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayFor(model => model.ThingLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.OtherPartyLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherParty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThingLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThingLabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherPartyLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherPartyLabel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

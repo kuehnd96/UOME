@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63B3FEA3-CFF9-4A02-94B1-BCAB90B8F750}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DK.UOME.Store.PresentationModel</RootNamespace>
+    <AssemblyName>DK.UOME.Store.PresentationModel</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+    <TargetPlatform Include="Windows, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MappingConfigurations\AutoMapperConfiguration.cs" />
+    <Compile Include="MappingConfigurations\Profiles\EntryModelProfile.cs" />
+    <Compile Include="MappingConfigurations\ValueResolvers\StorageToUIEntryTypeValueResolver.cs" />
+    <Compile Include="MappingConfigurations\ValueResolvers\UIToStorageEntryTypeValueResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EntryGroupViewModel.cs" />
+    <Compile Include="ViewModels\EntryViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\ShowEntryViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.3.3.0\lib\portable-windows8+net40+wp8+wpa81+sl5+MonoAndroid+MonoTouch\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DK.Framework.Core">
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DK.Framework.Store">
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="DK.Framework.Store.NotificationsExtensions">
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.DataModel\DK.UOME.DataAccess.DataModel.csproj">
+      <Project>{0f8f1a45-7d06-42b2-873d-4f396769c0dc}</Project>
+      <Name>DK.UOME.DataAccess.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.Interfaces\DK.UOME.DataAccess.Interfaces.csproj">
+      <Project>{86e10323-86a9-4838-ae25-25005b3396e2}</Project>
+      <Name>DK.UOME.DataAccess.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DK.UOME.Repositories.Interfaces\DK.UOME.Repositories.Interfaces.csproj">
+      <Project>{715c0be4-caf1-4beb-856e-f8afd6c7cde3}</Project>
+      <Name>DK.UOME.Repositories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.Notifications\DK.UOME.Store.Notifications.csproj">
+      <Project>{7c329a42-9f33-4492-ae30-a1ca78aa9361}</Project>
+      <Name>DK.UOME.Store.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.UI.DataModel\DK.UOME.Store.UI.DataModel.csproj">
+      <Project>{cb6c4588-8f23-4b6c-bfdf-3947ce737dc9}</Project>
+      <Name>DK.UOME.Store.UI.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
