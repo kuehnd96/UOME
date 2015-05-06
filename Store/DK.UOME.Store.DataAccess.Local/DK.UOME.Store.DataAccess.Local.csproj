@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DK.Framework.Core">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="SQLite.WinRT">
       <HintPath>..\..\packages\SQLitePortable.3.8.6.5\lib\portable-net45+win8+wpa81+wp8\SQLite.WinRT.dll</HintPath>

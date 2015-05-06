@@ -50,13 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DK.Framework.Core">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store.NotificationsExtensions">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
     </Reference>
     <Reference Include="System.Composition.AttributedModel">
       <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4793A2A6-228F-4BAD-98D7-11BBC3D1F991}"
 EndProject
@@ -53,101 +53,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.UOME.Store.DataAccess.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.UOME.Store.Notifications", "Store\DK.UOME.Store.Notifications\DK.UOME.Store.Notifications.csproj", "{7C329A42-9F33-4492-AE30-A1CA78AA9361}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.UOME.Store.UI.UWP", "Store\DK.UOME.Store.UI.UWP\DK.UOME.Store.UI.UWP.csproj", "{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UWP", "UWP", "{5E1D8898-B708-4D3A-9D5E-6295DE09DE72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.UOME.Store.UI.UWP.Mobile", "Store\DK.UOME.Store.UI.UWP.Mobile\DK.UOME.Store.UI.UWP.Mobile.csproj", "{F317B87A-4912-48B2-87D7-53E5BC813018}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Store\DK.UOME.Store.UI\DK.UOME.Store.UI.Shared\DK.UOME.Store.UI.Shared.projitems*{c196f640-fb3f-4789-bb3c-bb8ccaadd720}*SharedItemsImports = 4
 		Store\DK.UOME.Store.UI\DK.UOME.Store.UI.Shared\DK.UOME.Store.UI.Shared.projitems*{754555be-7f00-404e-b6c0-8f2a7ebd431e}*SharedItemsImports = 13
+		Store\DK.UOME.Store.UI\DK.UOME.Store.UI.Shared\DK.UOME.Store.UI.Shared.projitems*{55b7eba5-3059-4ca8-83cc-e23aceb72daf}*SharedItemsImports = 4
+		Store\DK.UOME.Store.UI\DK.UOME.Store.UI.Shared\DK.UOME.Store.UI.Shared.projitems*{f317b87a-4912-48b2-87d7-53e5bc813018}*SharedItemsImports = 4
 		Store\DK.UOME.Store.UI\DK.UOME.Store.UI.Shared\DK.UOME.Store.UI.Shared.projitems*{aa94b8cb-9a3f-4a19-97f9-5090268045bc}*SharedItemsImports = 4
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 22
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://kuehnd96.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Web\\DK.UOME.DataAccess.Local\\DK.UOME.DataAccess.Local.csproj
-		SccProjectTopLevelParentUniqueName1 = UOME.sln
-		SccProjectName1 = Web/DK.UOME.DataAccess.Local
-		SccLocalPath1 = Web\\DK.UOME.DataAccess.Local
-		SccProjectUniqueName2 = Web\\DK.UOME.Web.Repositories\\DK.UOME.Web.Repositories.csproj
-		SccProjectTopLevelParentUniqueName2 = UOME.sln
-		SccProjectName2 = Web/DK.UOME.Web.Repositories
-		SccLocalPath2 = Web\\DK.UOME.Web.Repositories
-		SccProjectUniqueName3 = Web\\DK.UOME.Web.UI.DataModel\\DK.UOME.Web.UI.DataModel.csproj
-		SccProjectTopLevelParentUniqueName3 = UOME.sln
-		SccProjectName3 = Web/DK.UOME.Web.UI.DataModel
-		SccLocalPath3 = Web\\DK.UOME.Web.UI.DataModel
-		SccProjectUniqueName4 = Core\\DK.UOME.DataAccess.Interfaces\\DK.UOME.DataAccess.Interfaces.csproj
-		SccProjectTopLevelParentUniqueName4 = UOME.sln
-		SccProjectName4 = Core/DK.UOME.DataAccess.Interfaces
-		SccLocalPath4 = Core\\DK.UOME.DataAccess.Interfaces
-		SccProjectUniqueName5 = Core\\DK.UOME.DataAccess.DataModel\\DK.UOME.DataAccess.DataModel.csproj
-		SccProjectTopLevelParentUniqueName5 = UOME.sln
-		SccProjectName5 = Core/DK.UOME.DataAccess.DataModel
-		SccLocalPath5 = Core\\DK.UOME.DataAccess.DataModel
-		SccProjectUniqueName6 = Core\\DK.UOME.Repositories.Interfaces\\DK.UOME.Repositories.Interfaces.csproj
-		SccProjectTopLevelParentUniqueName6 = UOME.sln
-		SccProjectName6 = Core/DK.UOME.Repositories.Interfaces
-		SccLocalPath6 = Core\\DK.UOME.Repositories.Interfaces
-		SccProjectUniqueName7 = Web\\DK.UOME.DataAccess.WebAPI\\DK.UOME.DataAccess.WebAPI.csproj
-		SccProjectTopLevelParentUniqueName7 = UOME.sln
-		SccProjectName7 = Web/DK.UOME.DataAccess.WebAPI
-		SccLocalPath7 = Web\\DK.UOME.DataAccess.WebAPI
-		SccProjectUniqueName8 = Web\\DK.UOME.Web.UI\\DK.UOME.Web.UI.csproj
-		SccProjectTopLevelParentUniqueName8 = UOME.sln
-		SccProjectName8 = Web/DK.UOME.Web.UI
-		SccLocalPath8 = Web\\DK.UOME.Web.UI
-		SccProjectUniqueName9 = DK.UOME.Web.UI.IntegrationTests\\DK.UOME.Web.UI.IntegrationTests.csproj
-		SccProjectTopLevelParentUniqueName9 = UOME.sln
-		SccProjectName9 = DK.UOME.Web.UI.IntegrationTests
-		SccLocalPath9 = DK.UOME.Web.UI.IntegrationTests
-		SccProjectUniqueName10 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Shared\\DK.UOME.Store.UI.Shared.shproj
-		SccProjectTopLevelParentUniqueName10 = UOME.sln
-		SccProjectName10 = Store/DK.UOME.Store.UI/DK.UOME.Store.UI.Shared
-		SccLocalPath10 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Shared
-		SccProjectUniqueName11 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Shared\\DK.UOME.Store.UI.Shared.projitems
-		SccProjectTopLevelParentUniqueName11 = UOME.sln
-		SccProjectName11 = Store/DK.UOME.Store.UI/DK.UOME.Store.UI.Shared
-		SccLocalPath11 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Shared
-		SccProjectUniqueName12 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Windows\\DK.UOME.Store.UI.Windows.csproj
-		SccProjectTopLevelParentUniqueName12 = UOME.sln
-		SccProjectName12 = Store/DK.UOME.Store.UI/DK.UOME.Store.UI.Windows
-		SccLocalPath12 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.Windows
-		SccProjectUniqueName13 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.WindowsPhone\\DK.UOME.Store.UI.WindowsPhone.csproj
-		SccProjectTopLevelParentUniqueName13 = UOME.sln
-		SccProjectName13 = Store/DK.UOME.Store.UI/DK.UOME.Store.UI.WindowsPhone
-		SccLocalPath13 = Store\\DK.UOME.Store.UI\\DK.UOME.Store.UI.WindowsPhone
-		SccProjectUniqueName14 = Store\\DK.UOME.Store.Repositories\\DK.UOME.Store.Repositories.csproj
-		SccProjectTopLevelParentUniqueName14 = UOME.sln
-		SccProjectName14 = Store/DK.UOME.Store.Repositories
-		SccLocalPath14 = Store\\DK.UOME.Store.Repositories
-		SccProjectUniqueName15 = Store\\DK.UOME.Store.UI.DataModel\\DK.UOME.Store.UI.DataModel.csproj
-		SccProjectTopLevelParentUniqueName15 = UOME.sln
-		SccProjectName15 = Store/DK.UOME.Store.UI.DataModel
-		SccLocalPath15 = Store\\DK.UOME.Store.UI.DataModel
-		SccProjectUniqueName16 = Store\\DK.UOME.Store.Windows.Tests\\DK.UOME.Store.Windows.Tests.csproj
-		SccProjectTopLevelParentUniqueName16 = UOME.sln
-		SccProjectName16 = Store/DK.UOME.Store.Windows.Tests
-		SccLocalPath16 = Store\\DK.UOME.Store.Windows.Tests
-		SccProjectUniqueName17 = Store\\DK.UOME.Store.WindowsPhone.Tests\\DK.UOME.Store.WindowsPhone.Tests.csproj
-		SccProjectTopLevelParentUniqueName17 = UOME.sln
-		SccProjectName17 = Store/DK.UOME.Store.WindowsPhone.Tests
-		SccLocalPath17 = Store\\DK.UOME.Store.WindowsPhone.Tests
-		SccProjectUniqueName18 = Store\\DK.UOME.Store.PresentationModel\\DK.UOME.Store.PresentationModel.csproj
-		SccProjectTopLevelParentUniqueName18 = UOME.sln
-		SccProjectName18 = Store/DK.UOME.Store.PresentationModel
-		SccLocalPath18 = Store\\DK.UOME.Store.PresentationModel
-		SccProjectUniqueName19 = Store\\DK.UOME.Store.Background\\DK.UOME.Store.Background.csproj
-		SccProjectTopLevelParentUniqueName19 = UOME.sln
-		SccProjectName19 = Store/DK.UOME.Store.Background
-		SccLocalPath19 = Store\\DK.UOME.Store.Background
-		SccProjectUniqueName20 = Store\\DK.UOME.Store.DataAccess.Local\\DK.UOME.Store.DataAccess.Local.csproj
-		SccProjectTopLevelParentUniqueName20 = UOME.sln
-		SccProjectName20 = Store/DK.UOME.Store.DataAccess.Local
-		SccLocalPath20 = Store\\DK.UOME.Store.DataAccess.Local
-		SccProjectUniqueName21 = Store\\DK.UOME.Store.Notifications\\DK.UOME.Store.Notifications.csproj
-		SccProjectTopLevelParentUniqueName21 = UOME.sln
-		SccProjectName21 = Store/DK.UOME.Store.Notifications
-		SccLocalPath21 = Store\\DK.UOME.Store.Notifications
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -486,6 +404,58 @@ Global
 		{7C329A42-9F33-4492-AE30-A1CA78AA9361}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7C329A42-9F33-4492-AE30-A1CA78AA9361}.Release|x64.ActiveCfg = Release|Any CPU
 		{7C329A42-9F33-4492-AE30-A1CA78AA9361}.Release|x86.ActiveCfg = Release|Any CPU
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|ARM.Build.0 = Debug|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|ARM.Deploy.0 = Debug|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x64.ActiveCfg = Debug|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x64.Build.0 = Debug|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x64.Deploy.0 = Debug|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x86.ActiveCfg = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x86.Build.0 = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Debug|x86.Deploy.0 = Debug|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|Any CPU.ActiveCfg = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|ARM.ActiveCfg = Release|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|ARM.Build.0 = Release|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|ARM.Deploy.0 = Release|ARM
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|Mixed Platforms.Build.0 = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|Mixed Platforms.Deploy.0 = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x64.ActiveCfg = Release|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x64.Build.0 = Release|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x64.Deploy.0 = Release|x64
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x86.ActiveCfg = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x86.Build.0 = Release|x86
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF}.Release|x86.Deploy.0 = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|ARM.Build.0 = Debug|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x64.ActiveCfg = Debug|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x64.Build.0 = Debug|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x64.Deploy.0 = Debug|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x86.ActiveCfg = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x86.Build.0 = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Debug|x86.Deploy.0 = Debug|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|Any CPU.ActiveCfg = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|ARM.ActiveCfg = Release|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|ARM.Build.0 = Release|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|ARM.Deploy.0 = Release|ARM
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|Mixed Platforms.Build.0 = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|Mixed Platforms.Deploy.0 = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x64.ActiveCfg = Release|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x64.Build.0 = Release|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x64.Deploy.0 = Release|x64
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x86.ActiveCfg = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x86.Build.0 = Release|x86
+		{F317B87A-4912-48B2-87D7-53E5BC813018}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -513,5 +483,8 @@ Global
 		{F75182BC-137E-4204-B1EB-8239A5D8CE90} = {79CE4901-1D6A-44A0-8965-C84836B44309}
 		{F248CD9F-4019-487D-824E-8541560CB24B} = {79CE4901-1D6A-44A0-8965-C84836B44309}
 		{7C329A42-9F33-4492-AE30-A1CA78AA9361} = {79CE4901-1D6A-44A0-8965-C84836B44309}
+		{55B7EBA5-3059-4CA8-83CC-E23ACEB72DAF} = {5E1D8898-B708-4D3A-9D5E-6295DE09DE72}
+		{5E1D8898-B708-4D3A-9D5E-6295DE09DE72} = {79CE4901-1D6A-44A0-8965-C84836B44309}
+		{F317B87A-4912-48B2-87D7-53E5BC813018} = {5E1D8898-B708-4D3A-9D5E-6295DE09DE72}
 	EndGlobalSection
 EndGlobal
