@@ -67,15 +67,9 @@ namespace DK.UOME.Store.UI
         /// <summary>
         /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
         /// </summary>
-        public static Microsoft.ApplicationInsights.TelemetryClient TelemetryClient;
+        public static TelemetryClient TelemetryClient;
 
 #endif
-
-
-
-        //[Import]
-        //public StoreFramework.SuspensionManager SuspensionManager { get; set; }
-
         [Import]
         public INavigationService NavigationService { get; set; }
 
@@ -94,13 +88,10 @@ namespace DK.UOME.Store.UI
         public App()
         {
 #if WINDOWS_UAP
-            TelemetryClient = new Microsoft.ApplicationInsights.TelemetryClient();
+            TelemetryClient = new TelemetryClient();
 #endif
 
-#if !WINDOWS_UAP
             this.InitializeComponent(); 
-#endif
-
             this.Suspending += this.OnSuspending;
         }
 
