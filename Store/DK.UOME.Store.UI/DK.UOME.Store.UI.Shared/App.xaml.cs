@@ -5,6 +5,8 @@ using DK.Framework.Store.WinPhone8.Controls;
 #elif WINDOWS_APP
 using DK.UOME.Store.UI.Windows.Views;
 using DK.Framework.Store.Win8;
+#elif WINDOWS_UAP
+using Microsoft.ApplicationInsights;
 #endif
 
 using StoreFramework = DK.Framework.Store;
@@ -60,11 +62,20 @@ namespace DK.UOME.Store.UI
         [Import]
         public ISessionState SessionState { get; set; }
 
+#elif WINDOWS_UAP
+
+        /// <summary>
+        /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
+        /// </summary>
+        public static Microsoft.ApplicationInsights.TelemetryClient TelemetryClient;
+
 #endif
+
+
 
         //[Import]
         //public StoreFramework.SuspensionManager SuspensionManager { get; set; }
-        
+
         [Import]
         public INavigationService NavigationService { get; set; }
 
@@ -82,7 +93,13 @@ namespace DK.UOME.Store.UI
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+#if WINDOWS_UAP
+            TelemetryClient = new Microsoft.ApplicationInsights.TelemetryClient();
+#endif
+
+#if !WINDOWS_UAP
+            this.InitializeComponent(); 
+#endif
 
             this.Suspending += this.OnSuspending;
         }
