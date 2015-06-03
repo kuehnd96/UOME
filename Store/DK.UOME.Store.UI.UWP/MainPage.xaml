@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox Text="Go Blackhawks! Ground those Ducks!"/>
+        <TextBox Text="Go Blackhawks! Tame that Lightning!"/>
     </Grid>
 </Page>
