@@ -94,7 +94,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="DesignData\DesignEntryGroupViewModel.cs" />
+    <Compile Include="DesignData\DesignEntryViewModel.cs" />
+    <Compile Include="DesignData\DesignMainViewModel.cs" />
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,12 +123,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\windows8\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.WinRT, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.3.3.1\lib\windows8\AutoMapper.WinRT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DK.Framework.Core">
+      <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DK.Framework.Store">
+      <HintPath>..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
+    </Reference>
+    <Reference Include="IBehaviorP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IBehaviorPortable.1.0.0\lib\NetCore451\IBehaviorP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ApplicationInsights, Version=0.14.3.177, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.ApplicationInsights.0.14.3-build00177\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
@@ -138,6 +159,26 @@
       <HintPath>..\..\packages\Microsoft.ApplicationInsights.PersistenceChannel.0.14.3-build00177\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.PersistenceChannel.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Numerics.Vectors, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Numerics.Vectors.4.0.0\lib\win8\System.Numerics.Vectors.dll</HintPath>
       <Private>True</Private>
@@ -148,7 +189,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.DataModel\DK.UOME.DataAccess.DataModel.csproj">
+      <Project>{0f8f1a45-7d06-42b2-873d-4f396769c0dc}</Project>
+      <Name>DK.UOME.DataAccess.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.Interfaces\DK.UOME.DataAccess.Interfaces.csproj">
+      <Project>{86e10323-86a9-4838-ae25-25005b3396e2}</Project>
+      <Name>DK.UOME.DataAccess.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DK.UOME.Repositories.Interfaces\DK.UOME.Repositories.Interfaces.csproj">
+      <Project>{715c0be4-caf1-4beb-856e-f8afd6c7cde3}</Project>
+      <Name>DK.UOME.Repositories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.Background\DK.UOME.Store.Background.csproj">
+      <Project>{f75182bc-137e-4204-b1eb-8239a5d8ce90}</Project>
+      <Name>DK.UOME.Store.Background</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.DataAccess.Local\DK.UOME.Store.DataAccess.Local.csproj">
+      <Project>{f248cd9f-4019-487d-824e-8541560cb24b}</Project>
+      <Name>DK.UOME.Store.DataAccess.Local</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.PresentationModel\DK.UOME.Store.PresentationModel.csproj">
+      <Project>{63b3fea3-cff9-4a02-94b1-bcab90b8f750}</Project>
+      <Name>DK.UOME.Store.PresentationModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.Repositories\DK.UOME.Store.Repositories.csproj">
+      <Project>{03dc9666-5661-464b-865c-77fabcfc292d}</Project>
+      <Name>DK.UOME.Store.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DK.UOME.Store.UI.DataModel\DK.UOME.Store.UI.DataModel.csproj">
+      <Project>{cb6c4588-8f23-4b6c-bfdf-3947ce737dc9}</Project>
+      <Name>DK.UOME.Store.UI.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs.AppLocal, version=14.0">
+      <Name>Microsoft Visual C++  AppLocal Runtime Package for Windows UAP</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UAP.2015, Version=3.8.10">
+      <Name>SQLite for Universal App Platform</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
@@ -163,6 +246,7 @@
     <Error Condition="!Exists('..\..\packages\Microsoft.ApplicationInsights.0.14.3-build00177\build\portable-win81+wpa81\Microsoft.ApplicationInsights.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.ApplicationInsights.0.14.3-build00177\build\portable-win81+wpa81\Microsoft.ApplicationInsights.targets'))" />
   </Target>
   <Import Project="..\..\packages\Microsoft.ApplicationInsights.0.14.3-build00177\build\portable-win81+wpa81\Microsoft.ApplicationInsights.targets" Condition="Exists('..\..\packages\Microsoft.ApplicationInsights.0.14.3-build00177\build\portable-win81+wpa81\Microsoft.ApplicationInsights.targets')" />
+  <Import Project="..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

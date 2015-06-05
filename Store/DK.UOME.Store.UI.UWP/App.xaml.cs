@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DK.UOME.Store.UI.UWP.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
