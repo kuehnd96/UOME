@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DK.UOME.Store.UI.UWP.DesignData
+namespace DK.UOME.Store.UI.UWP.Mobile.DesignData
 {
     public class DesignEntryViewModel : EntryViewModel
     {

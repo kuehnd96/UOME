@@ -12,10 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using DK.UOME.Store.UI.UWP.Mobile.DesignData;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace DK.UOME.Store.UI.UWP.Views
+namespace DK.UOME.Store.UI.UWP.Mobile.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -25,6 +26,10 @@ namespace DK.UOME.Store.UI.UWP.Views
         public MainPage()
         {
             this.InitializeComponent();
+
+#if DEBUG
+            this.DataContext = new DesignMainViewModel(); 
+#endif
         }
     }
 }
