@@ -180,13 +180,13 @@
       <HintPath>..\..\..\packages\AutoMapper.3.3.0\lib\wpa81\AutoMapper.WPA81.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Core">
-      <HintPath>..\..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store">
-      <HintPath>..\..\..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store.WinPhone8">
-      <HintPath>..\..\..\..\..\..\Lib\DK.Framework.Store.WinPhone8.dll</HintPath>
+      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.WinPhone8.dll</HintPath>
     </Reference>
     <Reference Include="IBehaviorP">
       <HintPath>..\..\..\packages\IBehaviorPortable.1.0.0\lib\wpa81\IBehaviorP.dll</HintPath>
