@@ -160,13 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DK.Framework.Core">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Store.NotificationsExtensions">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
     </Reference>
     <Reference Include="IBehaviorP">
       <HintPath>..\..\packages\IBehaviorPortable.1.0.0\lib\NetCore451\IBehaviorP.dll</HintPath>
