@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DK.UOME.Store.UI.UWP.DesignData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,20 @@ namespace DK.UOME.Store.UI.UWP.Views
         public MainPage()
         {
             this.InitializeComponent();
+
+#if DEBUG
+            this.DataContext = new DesignMainViewModel();
+#endif
+        }
+
+        private void OnMenuButtonClick(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
+
+        private void OnNavListSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SplitView.IsPaneOpen = false;
         }
     }
 }
