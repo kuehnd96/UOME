@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace DK.UOME.Store.UI.UWP.Mobile.ValueConverters
+namespace DK.UOME.Store.UI.UWP.ValueConverters
 {
     /// <summary>
     ///  Converts a nullable due date to a user-friendly message.

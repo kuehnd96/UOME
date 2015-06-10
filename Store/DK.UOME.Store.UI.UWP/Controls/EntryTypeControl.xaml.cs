@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace DK.UOME.Store.UI.UWP.Mobile.Controls
+namespace DK.UOME.Store.UI.UWP.Controls
 {
     public sealed partial class EntryTypeControl : UserControl
     {

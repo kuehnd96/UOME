@@ -1,29 +1,18 @@
-﻿using DK.Framework.Core;
-using DK.Framework.Core.Interfaces;
-using DK.Framework.Store.Commands;
-using DK.Framework.Store.Interfaces;
-using DK.Framework.Store.Model;
-using DK.UOME.Repositories.Interfaces;
-using UIModel = DK.UOME.Store.UI.DataModel;
-using StorageModel = DK.UOME.DataAccess.DataModel;
+﻿using DK.UOME.Store.UI.DataModel;
+using DK.UOME.Store.PresentationModel.ViewModels;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Composition;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using DK.UOME.Store.PresentationModel.MappingConfigurations.Profiles;
-using DK.UOME.Store.UI.DataModel;
-using DK.UOME.Store.PresentationModel.ViewModels;
 
-namespace DK.UOME.Store.UI.UWP.Mobile.DesignData
+namespace DK.UOME.Store.UI.UWP.DesignData
 {
-    public class DesignMainViewModel : MainViewModel
+    public class DesignEntryGroupViewModel : EntryGroupViewModel
     {
-        public DesignMainViewModel()
+        public DesignEntryGroupViewModel()
         {
-            IList<UIModel.EntryGroup> entryGroups = new List<UIModel.EntryGroup>(3);
             DateTime today = DateTime.Now.Date;
 
             Entry movieEntry = new BorrowedEntry()
@@ -82,11 +71,10 @@ namespace DK.UOME.Store.UI.UWP.Mobile.DesignData
                 Note = "Wii disc game"
             };
 
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry }, "Borrowed Group", UIModel.EntryType.Borrowed));
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { foodEntry }, "Loaned Group", UIModel.EntryType.Loaned));
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry, videoGameEntry, foodEntry, phoneChargerEntry, lunchMoneyEntry, wiiGameEntry }, "Mixed Group", null));
+            EntryGroup group = new EntryGroup { Name = "Test Mixed Group" };
+            group.Items = new ObservableCollection<Entry> { movieEntry, videoGameEntry, foodEntry, phoneChargerEntry, lunchMoneyEntry, wiiGameEntry };
 
-            EntryGroups = new ObservableCollection<UIModel.EntryGroup>(entryGroups);
+            EntryGroup = group;
         }
     }
 }

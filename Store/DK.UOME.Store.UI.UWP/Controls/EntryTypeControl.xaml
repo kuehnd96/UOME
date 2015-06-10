@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="DK.UOME.Store.UI.UWP.Mobile.Controls.EntryTypeControl"
+    x:Class="DK.UOME.Store.UI.UWP.Controls.EntryTypeControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DK.UOME.Store.UI.UWP.Mobile.Controls"

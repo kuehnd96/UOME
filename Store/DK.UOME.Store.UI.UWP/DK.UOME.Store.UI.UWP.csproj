@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{69816A53-93F6-4B53-841D-C578AFFE23C1}</ProjectGuid>
+    <ProjectGuid>{5949A742-B9D3-4D02-95CC-613DEB1CD215}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DK.UOME.Store.UI.UWP.Mobile</RootNamespace>
-    <AssemblyName>DK.UOME.Store.UI.UWP.Mobile</AssemblyName>
+    <RootNamespace>DK.UOME.Store.UI.UWP</RootNamespace>
+    <AssemblyName>DK.UOME.Store.UI.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10069.0</TargetPlatformVersion>
@@ -17,7 +17,7 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>DK.UOME.Store.UI.UWP.Mobile_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>DK.UOME.Store.UI.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -110,9 +110,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="app.config" />
     <None Include="ApplicationInsights.config" />
-    <None Include="DK.UOME.Store.UI.UWP.Mobile_TemporaryKey.pfx" />
+    <None Include="DK.UOME.Store.UI.UWP_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,12 +130,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\EntryTypeControl.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +208,9 @@
     <SDKReference Include="SQLite.UAP.2015, Version=3.8.10">
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
+    <SDKReference Include="WindowsDesktop, Version=10.0.10069.0">
+      <Name>Microsoft Desktop Extension SDK for Universal App Platform</Name>
+    </SDKReference>
     <SDKReference Include="WindowsMobile, Version=10.0.0.1">
       <Name>Microsoft Mobile Extension SDK for Universal App Platform</Name>
     </SDKReference>
@@ -243,6 +245,7 @@
       <Name>DK.UOME.Store.UI.DataModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

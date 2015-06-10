@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="fc19264e-e2b0-4242-9cee-e16fb30eadd9"
+    Name="691dbd6d-ab1e-4659-aaa6-6724ab8ae706"
     Publisher="CN=David"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="fc19264e-e2b0-4242-9cee-e16fb30eadd9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="691dbd6d-ab1e-4659-aaa6-6724ab8ae706" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>DK.UOME.Store.UI.UWP.Mobile</DisplayName>
+    <DisplayName>DK.UOME.Store.UI.UWP</DisplayName>
     <PublisherDisplayName>David</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="DK.UOME.Store.UI.UWP.Mobile.App">
+      EntryPoint="DK.UOME.Store.UI.UWP.App">
       <uap:VisualElements
-        DisplayName="DK.UOME.Store.UI.UWP.Mobile"
+        DisplayName="DK.UOME.Store.UI.UWP"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
-        Description="DK.UOME.Store.UI.UWP.Mobile"
+        Description="DK.UOME.Store.UI.UWP"
         BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>

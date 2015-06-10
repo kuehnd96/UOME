@@ -14,11 +14,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using DK.UOME.Store.UI.UWP.Mobile.Views;
+using DK.UOME.Store.UI.UWP.Views;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
-namespace DK.UOME.Store.UI.UWP.Mobile
+namespace DK.UOME.Store.UI.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
