@@ -41,5 +41,18 @@ namespace DK.UOME.Store.UI.UWP.Views
         {
             SplitView.IsPaneOpen = false;
         }
+
+        private void OnNavListLoaded(object sender, RoutedEventArgs e)
+        {
+            //NOTE: Why does this run twice?
+
+            var listView = sender as ListView;
+
+            if ((listView != null) &&
+                (listView.Items.Any()))
+            {
+                listView.SelectedIndex = 0;
+            }
+        }
     }
 }

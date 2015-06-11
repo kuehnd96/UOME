@@ -3,20 +3,19 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DK.UOME.Store.UI.UWP.Views"
-    xmlns:localControls="using:DK.UOME.Store.UI.UWP.Controls"
     xmlns:UIModel="using:DK.UOME.Store.UI.DataModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:DesignData="using:DK.UOME.Store.UI.UWP.DesignData"
     d:DataContext="{d:DesignInstance Type=DesignData:DesignMainViewModel, IsDesignTimeCreatable=True}">
-
+    
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="appBarButton" Label="About"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton Label="Add Loaned" Icon="Add" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned"/>
+            <AppBarButton Label="Add Loaned" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned" Icon="Add"/>
             <AppBarButton Icon="Add" Label="Add Borrowed" Command="{Binding AddNewEntryCommand}" CommandParameter="Borrowed"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -61,11 +60,14 @@
         <SplitView x:Name="SplitView" Grid.Row="1" DisplayMode="CompactOverlay" IsPaneOpen="False">
 
             <SplitView.Pane>
-                <ListView x:Name="NavList" ItemsSource="{Binding EntryGroups}" SelectionMode="Single" SelectionChanged="OnNavListSelectionChanged">
+                <ListView x:Name="NavList" ItemsSource="{Binding EntryGroups}" 
+                          SelectionMode="Single" 
+                          SelectionChanged="OnNavListSelectionChanged" 
+                          Loaded="OnNavListLoaded" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Rectangle Fill="White" Height="30" Width="30"/>
+                                <Rectangle Fill="White" Height="30" Width="30" Margin="0, 0, 10, 0"/>
                                 <TextBlock Text="{Binding Name}"/>
                             </StackPanel>
                         </DataTemplate>
@@ -73,32 +75,10 @@
                 </ListView>
             </SplitView.Pane>
 
-            <ItemsControl ItemsSource="{Binding ElementName=NavList, Path=SelectedItem.Items}" HorizontalAlignment="Stretch">
-                <ItemsControl.Resources>
-                    <DataTemplate x:Key="EntryItemTemplate">
-                        <Grid Margin="0,5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <localControls:EntryTypeControl Width="25" Height="25" Margin="0,0,7,0" EntryState="{Binding Type}" />
-                            <TextBlock Text="{Binding Thing}" Grid.Column="1"/>
-                            <TextBlock Text="{Binding OtherParty}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding DueDate, Converter={StaticResource DueMessageConverter}}" Grid.Row="2" Grid.ColumnSpan="2"/>
-                            <TextBlock Text="{Binding Note}" Grid.Row="3" Grid.ColumnSpan="2" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.Resources>
-                <ItemsControl.ItemTemplate>
-                    <StaticResource ResourceKey="EntryItemTemplate"/>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ItemsControl 
+                ItemsSource="{Binding ElementName=NavList, Path=SelectedItem.Items}"
+                HorizontalAlignment="Stretch" 
+                ItemTemplateSelector="{StaticResource EntryTemplateSelector}"/>
         </SplitView>
 
     </Grid>
