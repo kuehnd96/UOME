@@ -10,6 +10,8 @@
 
     <Application.Resources>
         <Converters:DueDateToDueMessageConverter x:Key="DueMessageConverter" />
+        <Converters:StringFormatConverter x:Key="StringFormatConverter"/>
+        
         <Selectors:EntryTemplateSelector x:Key="EntryTemplateSelector"/>
 
         <!-- Find a way to reuse more of these tempaltes -->

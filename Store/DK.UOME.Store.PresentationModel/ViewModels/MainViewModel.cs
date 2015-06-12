@@ -71,6 +71,8 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
             }
         }
 
+        public bool UseEntryMax { get; set; }
+
         /// <summary>
         /// Functionality that should run every time the screen is navigated to.
         /// </summary>
@@ -146,14 +148,15 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
             SendNotifications(rawEntries, pinnedEntyIds);
         }
 
-        protected UIModel.EntryGroup CreateEntryGroup(IEnumerable<UIModel.Entry> entries, string groupName, UIModel.EntryType? groupType)
+        protected EntryGroup CreateEntryGroup(IEnumerable<UIModel.Entry> entries, string groupName, UIModel.EntryType? groupType = null, string icon = null)
         {
             var entryGroup = new UIModel.EntryGroup() { Name = groupName };
             entryGroup.LandingItems = new ObservableCollection<LandingItem<UIModel.Entry>>(ConvertEntriesToLandingItems(entries.Take(EntryMax)));
             entryGroup.Items = new ObservableCollection<UIModel.Entry>(entries);
             entryGroup.Type = groupType;
+            entryGroup.Icon = icon;
 
-            if (entries.Count() > EntryMax)
+            if ((UseEntryMax) && (entries.Count() > EntryMax))
             {
                 // We need to add a placeholder indicating there are more items in this group
                 entryGroup.LandingItems.Add(new LandingItem<UIModel.Entry>(NavigationItemLabel) { Tag = entryGroup });

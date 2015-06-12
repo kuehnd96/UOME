@@ -82,9 +82,11 @@ namespace DK.UOME.Store.UI.UWP.DesignData
                 Note = "Wii disc game"
             };
 
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry }, "Borrowed Group", UIModel.EntryType.Borrowed));
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { foodEntry }, "Loaned Group", UIModel.EntryType.Loaned));
-            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry, videoGameEntry, foodEntry, phoneChargerEntry, lunchMoneyEntry, wiiGameEntry }, "Mixed Group", null));
+            entryGroups.Add(CreateEntryGroup(new List<Entry>() { phoneChargerEntry}, "Overdue", null, "NavigateOverdue"));
+            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry }, "Next Due", null, "NavigateNextDue"));
+            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry }, "Borrowed Group", EntryType.Borrowed, "NavigateBorrowed"));
+            entryGroups.Add(CreateEntryGroup(new List<Entry>() { foodEntry }, "Loaned Group", EntryType.Loaned, "NavigateLoaned"));
+            entryGroups.Add(CreateEntryGroup(new List<Entry>() { movieEntry, videoGameEntry, foodEntry, phoneChargerEntry, lunchMoneyEntry, wiiGameEntry }, "Mixed Group", null, "NavigateOverdue"));
 
             EntryGroups = new ObservableCollection<UIModel.EntryGroup>(entryGroups);
         }

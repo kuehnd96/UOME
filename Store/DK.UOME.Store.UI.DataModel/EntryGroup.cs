@@ -23,5 +23,10 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets or sets the type of entries contained within (if applicable).
         /// </summary>
         public EntryType? Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the icon for the group.
+        /// </summary>
+        public string Icon { get; set; }
     }
 }
