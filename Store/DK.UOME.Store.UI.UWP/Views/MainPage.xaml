@@ -15,8 +15,16 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="appBarButton" Label="About"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton Label="Add Loaned" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned" Icon="Add"/>
-            <AppBarButton Icon="Add" Label="Add Borrowed" Command="{Binding AddNewEntryCommand}" CommandParameter="Borrowed"/>
+            <AppBarButton Label="Add Loaned" Command="{Binding AddNewEntryCommand}" CommandParameter="Loaned">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/NavigateLoaned.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Label="Add Borrowed" Command="{Binding AddNewEntryCommand}" CommandParameter="Borrowed">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/NavigateBorrowed.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
 
