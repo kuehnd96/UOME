@@ -15,15 +15,19 @@ namespace DK.UOME.Store.UI.DataModel
         const string DueDatePropertyName = "DueDate";
         const string FormattedCreateDatePropertyName = "FormattedCreateDate";
         const string FormattedDueDatePropertyName = "FormattedDueDate";
+        const string HasDueDatePropertyName = "HasDueDate";
+
         const string DateFormat = "{0}/{1}/{2}";
         const string MissingMessageFormat = "{0} is missing";
         const string DueDateErrorMessage = "Due date must be after today";
+        const int DefaultDueDateAdvance = 1; // Number of days ahead for the default due date
         
         string _thing;
         string _note;
         DateTime _createDate;
         DateTime? _dueDate;
         string _otherParty;
+        bool _hasDueDate;
 
         /// <summary>
         /// Gets or sets the identifier of this entry.
@@ -87,6 +91,7 @@ namespace DK.UOME.Store.UI.DataModel
             {
                 SetProperty(ref _dueDate, value);
                 OnPropertyChanged(FormattedDueDatePropertyName);
+                OnPropertyChanged(HasDueDatePropertyName);
             }
         }
 
@@ -114,7 +119,6 @@ namespace DK.UOME.Store.UI.DataModel
         {
             get { return _otherParty; }
             set { SetProperty(ref _otherParty, value); }
-            
         }
 
         /// <summary>
@@ -133,6 +137,24 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets the label for the other party associated with this entry.
         [DataMember]
         public abstract string OtherPartyLabel { get; }
+
+        public bool HasDueDate
+        {
+            get { return _dueDate.HasValue; }
+            set
+            {
+                if (value)
+                {
+                    DueDate = DateTime.Today.AddDays(DefaultDueDateAdvance);
+                }
+                else
+                {
+                    DueDate = null;
+                }
+
+                SetProperty(ref _hasDueDate, value);
+            }
+        }
 
         /// <summary>
         /// Runs validation.

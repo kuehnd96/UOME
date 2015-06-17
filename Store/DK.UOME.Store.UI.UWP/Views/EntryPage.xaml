@@ -26,66 +26,74 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid>
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock x:Name="pageTitle" Text="{Binding Label}" />
-
-        <!-- Main area of screen -->
-        <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid.Resources>
-                <Style x:Key="LabelStyle" TargetType="TextBlock" >
-                    <Setter Property="HorizontalAlignment" Value="Left"/>
-                    <Setter Property="TextWrapping" Value="Wrap"/>
-                    <Setter Property="VerticalAlignment" Value="Top"/>
-                    <Setter Property="Margin" Value="0,15"/>
-                </Style>
+            <TextBlock x:Name="pageTitle" Text="{Binding Label}" FontSize="18.667" HorizontalAlignment="Left" VerticalAlignment="Center" />
 
-                <Style x:Key="InputStyle" TargetType="TextBox">
-                    <Setter Property="HorizontalAlignment" Value="Left"/>
-                    <Setter Property="VerticalAlignment" Value="Top"/>
-                    <Setter Property="Width" Value="350"/>
-                </Style>
+            <!-- Main area of screen -->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <Style x:Key="ErrorStyle" TargetType="TextBlock">
-                    <Setter Property="Foreground" Value="Red"/>
-                </Style>
-            </Grid.Resources>
+                <Grid.Resources>
+                    <Style x:Key="LabelStyle" TargetType="TextBlock" >
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="Margin" Value="0,15"/>
+                    </Style>
 
-            <TextBlock Text="{Binding Entry.ThingLabel}"/>
-            <TextBox Text="{Binding Entry.Thing, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.Thing, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="1"/>
-            <TextBlock Grid.Row="2" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [Thing]}" />
+                    <Style x:Key="InputStyle" TargetType="TextBox">
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="Width" Value="350"/>
+                    </Style>
 
-            <TextBlock Text="{Binding Entry.OtherPartyLabel}" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
-            <TextBox Text="{Binding Entry.OtherParty, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.OtherParty, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="4"/>
-            <TextBlock Grid.Row="5" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [OtherParty]}" Style="{StaticResource ErrorStyle}" />
+                    <Style x:Key="ErrorStyle" TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Red"/>
+                    </Style>
+                </Grid.Resources>
 
-            <TextBlock Text="Due Date" Grid.Row="6"/>
-            <DatePicker Date="{Binding Entry.DueDate}" Grid.Row="7" />
-            <TextBlock Grid.Row="8" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [DueDate]}" Style="{StaticResource ErrorStyle}" />
+                <TextBlock Text="{Binding Entry.ThingLabel}" Style="{StaticResource LabelStyle}"/>
+                <TextBox Text="{Binding Entry.Thing, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.Thing, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="1"/>
+                <TextBlock Grid.Row="2" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [Thing]}" />
 
-            <TextBlock Text="Notes" Grid.Row="9"/>
-            <TextBox Text="{Binding Entry.Note, Mode=TwoWay}" Grid.Row="10" Height="200" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Entry.OtherPartyLabel}" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+                <TextBox Text="{Binding Entry.OtherParty, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.OtherParty, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="4"/>
+                <TextBlock Grid.Row="5" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [OtherParty]}" Style="{StaticResource ErrorStyle}" />
+
+                <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Left">
+                    <TextBlock Text="Is Due"  Style="{StaticResource LabelStyle}"/>
+                    <CheckBox IsChecked="{Binding Path=Entry.HasDueDate, Mode=TwoWay}" Margin="10,0,0,0" />
+                </StackPanel>
+
+                <TextBlock Text="Due Date" Grid.Row="7" Style="{StaticResource LabelStyle}"/>
+                <DatePicker Date="{Binding Entry.DueDate}" Grid.Row="8" IsEnabled="{Binding Entry.HasDueDate, Mode=TwoWay}" />
+                <TextBlock Grid.Row="9" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [DueDate]}" Style="{StaticResource ErrorStyle}" />
+
+                <TextBlock Text="Notes" Grid.Row="10" Style="{StaticResource LabelStyle}"/>
+                <TextBox Text="{Binding Entry.Note, Mode=TwoWay}" Grid.Row="11" Height="150" TextWrapping="Wrap" Width="360" HorizontalAlignment="Left"/>
+
+            </Grid>
 
         </Grid>
-
-    </Grid>
+    </ScrollViewer>
 </Page>
