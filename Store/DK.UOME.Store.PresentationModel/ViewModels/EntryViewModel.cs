@@ -43,13 +43,14 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
             get { return _entry; }
             set
             {
-                if (_entry != value)
+                if (_entry != null)
                 {
-                    _entry = value;
-                    OnPropertyChanged();
-                    OnPropertyChanged("IsNewEntry");
-                    OnPropertyChanged("IsEntryPinned");
+                    _entry.PropertyChanged -= OnEntryPropertyChanged;
                 }
+
+                SetProperty(ref _entry, value);
+                OnPropertyChanged("IsNewEntry");
+                OnPropertyChanged("IsEntryPinned");
             }
         }
 
@@ -61,11 +62,7 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
             get { return _label; }
             set
             {
-                if (_label != value)
-                {
-                    _label = value;
-                    OnPropertyChanged();
-                }
+                SetProperty(ref _label, value);
             }
         }
 
@@ -172,8 +169,11 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
         {
             if (Entry.IsValid)
             {
-                var entry = Mapper.Map<StorageModel.Entry>(Entry);
-                await EntryRepository.SaveEntry(entry);
+                if (Entry.HasChanged)
+                {
+                    var entry = Mapper.Map<StorageModel.Entry>(Entry);
+                    await EntryRepository.SaveEntry(entry); 
+                }
 
                 Navigation.GoBack();
             }
@@ -278,6 +278,19 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
                     Entry = entry;
                     Label = ShowEntryViewModel.GetEntryLabel(entry.Type);
                 }
+            }
+
+            Entry.IsTrackingChanges = true;
+            IsTrackingChanges = true;
+
+            Entry.PropertyChanged += OnEntryPropertyChanged;
+        }
+
+        private void OnEntryPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "HasChanged")
+            {
+                HasChanged = Entry.HasChanged;
             }
         }
     }

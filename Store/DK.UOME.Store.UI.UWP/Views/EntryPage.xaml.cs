@@ -1,18 +1,9 @@
-﻿using DK.UOME.Store.UI.UWP.DesignData;
+﻿using DK.UOME.Store.PresentationModel.ViewModels;
+using DK.UOME.Store.UI.UWP.DesignData;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,7 +19,9 @@ namespace DK.UOME.Store.UI.UWP.Views
             this.InitializeComponent();
 
 #if DEBUG
-            this.DataContext = new DesignEntryViewModel();
+            var viewModel = new DesignEntryViewModel();
+            viewModel.Entry.IsTrackingChanges = true;
+            this.DataContext = viewModel;
 #endif
         }
 
@@ -68,6 +61,82 @@ namespace DK.UOME.Store.UI.UWP.Views
             //{
             //    await ViewModel.UnpinEntry();
             //}
+        }
+
+        private async void OnDeleteAppBarButtonClick(object sender, RoutedEventArgs e)
+        {
+            EntryViewModel viewModel = this.DataContext as EntryViewModel;
+
+            if (viewModel != null)
+            {
+                if (viewModel.DeleteCommand.CanExecute(null))
+                {
+                    MessageDialog deleteConfirmDialog = new MessageDialog("Are you sure you want to delete this entry?", "Delete Entry?");
+
+                    deleteConfirmDialog.Commands.Add(new UICommand("Cancel", (command) => { } ));
+                    deleteConfirmDialog.Commands.Add(new UICommand("Delete", (command) => 
+                    { 
+                        //TODO: Run delete command
+                    }));
+                    deleteConfirmDialog.DefaultCommandIndex = 1;
+                    deleteConfirmDialog.CancelCommandIndex = 0;
+
+                    await deleteConfirmDialog.ShowAsync();
+                }
+                else
+                {
+                    MessageDialog cantDeleteDialog = new MessageDialog("You cannot delete this entry because it has not been saved yet.", "Delete Not Allowed");
+
+                    await cantDeleteDialog.ShowAsync();
+                }
+            }
+        }
+
+        private async void OnSaveAppBarButtonClick(object sender, RoutedEventArgs e)
+        {
+            EntryViewModel viewModel = this.DataContext as EntryViewModel;
+
+            if (viewModel != null)
+            {
+                // NOTE: Check on HasChanged is in the view model Save() method
+                if (viewModel.Entry.IsValid)
+                {
+                    //TODO: Run save command
+                }
+                else
+                {
+                    MessageDialog cantSaveDialog = new MessageDialog("You cannot save this entry until you fix the errors.", "Entry Not Valid");
+
+                    await cantSaveDialog.ShowAsync();
+                }
+            }
+        }
+
+        private async void OnCancelAppBarButtonClick(object sender, RoutedEventArgs e)
+        {
+            EntryViewModel viewModel = this.DataContext as EntryViewModel;
+
+            if (viewModel != null)
+            {
+                if (viewModel.Entry.HasChanged)
+                {
+                    MessageDialog cancelConfirmDialog = new MessageDialog("There are pending changes to your entry. Are you sure you want to discard them?", "Discard Changes?");
+
+                    cancelConfirmDialog.Commands.Add(new UICommand("No", (command) => { }));
+                    cancelConfirmDialog.Commands.Add(new UICommand("Yes", (command) =>
+                    {
+                        //TODO: Run cancel command
+                    }));
+                    cancelConfirmDialog.DefaultCommandIndex = 1;
+                    cancelConfirmDialog.CancelCommandIndex = 0;
+
+                    await cancelConfirmDialog.ShowAsync();
+                }
+                else
+                {
+                    viewModel.CancelCommand.Execute(null);
+                }
+            }
         }
     }
 }

@@ -20,9 +20,9 @@
         <CommandBar>
             <AppBarButton x:Name="SecondaryTilePinButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Pin" Icon="Pin" Visibility="{Binding IsEntryPinned, ConverterParameter=1, Converter={StaticResource BoolToVisibilityConverter}}" Click="OnSecondaryTilePinButtonClick" IsEnabled="{Binding IsNewEntry, Converter={StaticResource NegationConverter}}" />
             <AppBarButton x:Name="SecondaryTileUnpinButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Unpin" Icon="UnPin" Visibility="{Binding IsEntryPinned, Converter={StaticResource BoolToVisibilityConverter}}" Click="OnSecondaryTileUnpinButtonClick" IsEnabled="{Binding IsNewEntry, Converter={StaticResource NegationConverter}}" />
-            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding SaveCommand}" Label="Save" Icon="Save"/>
-            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding CancelCommand}" Label="Cancel" Icon="Cancel"/>
-            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Label="Delete" Icon="Delete"/>
+            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Save" Icon="Save" Click="OnSaveAppBarButtonClick"/>
+            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Cancel" Icon="Cancel" Click="OnCancelAppBarButtonClick"/>
+            <AppBarButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Label="Delete" Icon="Delete" Click="OnDeleteAppBarButtonClick" />
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -74,7 +74,7 @@
 
                 <TextBlock Text="{Binding Entry.ThingLabel}" Style="{StaticResource LabelStyle}"/>
                 <TextBox Text="{Binding Entry.Thing, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.Thing, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="1"/>
-                <TextBlock Grid.Row="2" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [Thing]}" />
+                <TextBlock Grid.Row="2" DataContext="{Binding Entry.MessageDictionary}" Text="{Binding [Thing]}" Style="{StaticResource ErrorStyle}" />
 
                 <TextBlock Text="{Binding Entry.OtherPartyLabel}" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
                 <TextBox Text="{Binding Entry.OtherParty, Mode=TwoWay}" StoreFramework:UpdateSourceHelper.IsEnabled="True" StoreFramework:UpdateSourceHelper.UpdateSourceText="{Binding Entry.OtherParty, Mode=TwoWay}" Style="{StaticResource InputStyle}" Grid.Row="4"/>

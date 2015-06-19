@@ -1,4 +1,5 @@
-﻿using DK.Framework.Store.Validation;
+﻿using DK.Framework.Store.Attributes;
+using DK.Framework.Store.Validation;
 using System;
 using System.Runtime.Serialization;
 
@@ -39,6 +40,7 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets or sets the thing associated with this entry.
         /// </summary>
         [DataMember]
+        [TrackChange]
         public string Thing
         {
             get { return _thing; }
@@ -49,6 +51,7 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets or sets the note associated with this entry.
         /// </summary>
         [DataMember]
+        [TrackChange]
         public string Note
         {
             get { return _note; }
@@ -84,6 +87,7 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets or sets the date the entry is due.
         /// </summary>
         [DataMember]
+        [TrackChange]
         public DateTime? DueDate
         {
             get { return _dueDate; }
@@ -115,6 +119,7 @@ namespace DK.UOME.Store.UI.DataModel
         /// Gets or sets the other party associated with this entry.
         /// </summary>
         [DataMember]
+        [TrackChange]
         public string OtherParty
         {
             get { return _otherParty; }
