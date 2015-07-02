@@ -14,8 +14,8 @@
   <mp:PhoneIdentity PhoneProductId="691dbd6d-ab1e-4659-aaa6-6724ab8ae706" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>DK.UOME.Store.UI.UWP</DisplayName>
-    <PublisherDisplayName>David</PublisherDisplayName>
+    <DisplayName>UOME</DisplayName>
+    <PublisherDisplayName>David Kuehn</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="DK.UOME.Store.UI.UWP.App">
       <uap:VisualElements
-        DisplayName="DK.UOME.Store.UI.UWP"
+        DisplayName="UOME"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
         Description="DK.UOME.Store.UI.UWP"
