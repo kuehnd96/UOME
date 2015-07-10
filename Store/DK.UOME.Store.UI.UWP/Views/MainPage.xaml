@@ -28,9 +28,10 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid>
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <Grid>
 
-        <!--<VisualStateManager.VisualStateGroups>
+            <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="MenuState">
                 <VisualState x:Name="NarrowState">
                     <VisualState.Setters>
@@ -53,42 +54,43 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>-->
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal">
-            <Button Background="Transparent" Width="40" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Click="OnMenuButtonClick">
-                <FontIcon Glyph="&#xE700;" FontSize="32" Margin="0, -6, 0, 0"/>
-            </Button>
-            <TextBlock Text="UOME" VerticalAlignment="Center"/>
-        </StackPanel>
-        
-        <SplitView x:Name="SplitView" Grid.Row="1" DisplayMode="CompactOverlay" IsPaneOpen="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <SplitView.Pane>
-                <ListView x:Name="NavList" ItemsSource="{Binding EntryGroups}" 
+            <StackPanel Orientation="Horizontal">
+                <Button Background="Transparent" Width="40" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Click="OnMenuButtonClick">
+                    <FontIcon Glyph="&#xE700;" FontSize="32" Margin="0, -6, 0, 0"/>
+                </Button>
+                <TextBlock Text="UOME" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <SplitView x:Name="SplitView" Grid.Row="1" DisplayMode="CompactOverlay" IsPaneOpen="False">
+
+                <SplitView.Pane>
+                    <ListView x:Name="NavList" ItemsSource="{Binding EntryGroups}" 
                           SelectionMode="Single" 
                           SelectionChanged="OnNavListSelectionChanged" 
                           Loaded="OnNavListLoaded" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Height="30" Width="30" Margin="0, 0, 10, 0" 
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="30" Width="30" Margin="0, 0, 10, 0" 
                                        Source="{Binding Icon, Converter={StaticResource StringFormatConverter}, ConverterParameter='../Assets/{0}.png', TargetNullValue=Logo.scale-100}"/>
-                                <TextBlock Text="{Binding Name}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </SplitView.Pane>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </SplitView.Pane>
 
-            <ItemsControl 
+                <ItemsControl 
                 ItemsSource="{Binding ElementName=NavList, Path=SelectedItem.Items}"
                 HorizontalAlignment="Stretch" 
                 ItemTemplateSelector="{StaticResource EntryTemplateSelector}"/>
-        </SplitView>
+            </SplitView>
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>
