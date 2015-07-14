@@ -233,6 +233,10 @@
       <Project>{715c0be4-caf1-4beb-856e-f8afd6c7cde3}</Project>
       <Name>DK.UOME.Repositories.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\DK.UOME.Store.DataAccess.Local.UWP\DK.UOME.Store.DataAccess.Local.UWP.csproj">
+      <Project>{70d22194-ff4b-4cfc-8307-faeef1cb357e}</Project>
+      <Name>DK.UOME.Store.DataAccess.Local.UWP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DK.UOME.Store.DataAccess.Local\DK.UOME.Store.DataAccess.Local.csproj">
       <Project>{f248cd9f-4019-487d-824e-8541560cb24b}</Project>
       <Name>DK.UOME.Store.DataAccess.Local</Name>
