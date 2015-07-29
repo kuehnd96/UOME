@@ -1,20 +1,20 @@
-﻿using System;
+﻿using DK.Framework.Store;
+using DK.UOME.DataAccess.Interfaces;
+using DK.UOME.Repositories.Interfaces;
+using DK.UOME.Store.DataAccess.Local.UWP;
+using DK.UOME.Store.PresentationModel.MappingConfigurations;
+using DK.UOME.Store.PresentationModel.ViewModels;
+using DK.UOME.Store.Repositories;
+using DK.UOME.Store.UI.UWP.Views;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using DK.UOME.Store.UI.UWP.Views;
+using StorageModel = DK.UOME.DataAccess.DataModel;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -29,6 +29,11 @@ namespace DK.UOME.Store.UI.UWP
         /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
         /// </summary>
         public static Microsoft.ApplicationInsights.TelemetryClient TelemetryClient;
+
+        /// <summary>
+        /// Gets the root navigation frame in the application.
+        /// </summary>
+        public Frame RootFrame { get; private set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -47,7 +52,7 @@ namespace DK.UOME.Store.UI.UWP
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -57,32 +62,45 @@ namespace DK.UOME.Store.UI.UWP
             }
 #endif
 
-            Frame rootFrame = Window.Current.Content as Frame;
+            RootFrame = Window.Current.Content as Frame;
+
+            StartComposition(RootFrame);
+
+            AutoMapperConfiguration.Configure();
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (rootFrame == null)
+            if (RootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                RootFrame = new Frame();
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                RootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    // Restore the saved session state only when appropriate
+                    try
+                    {
+                        await SuspensionManager.RestoreAsync();
+                    }
+                    catch (Framework.Store.Exceptions.SuspensionManagerException)
+                    {
+                        //Something went wrong restoring state.
+                        //Assume there is no state and continue
+                    }
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+                Window.Current.Content = RootFrame;
             }
 
-            if (rootFrame.Content == null)
+            if (RootFrame.Content == null)
             {
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                RootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
@@ -105,11 +123,31 @@ namespace DK.UOME.Store.UI.UWP
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+
+            await SuspensionManager.SaveAsync();
+            
             deferral.Complete();
+        }
+
+        void StartComposition(object rootVisual)
+        {
+            CompositionStarter starter = new CompositionStarter(this, rootVisual);
+
+            List<Assembly> compositionAssemblies = new List<Assembly>() {
+                typeof(App).GetTypeInfo().Assembly,
+                typeof(StorageModel.Entry).GetTypeInfo().Assembly,
+                typeof(NavigationService).GetTypeInfo().Assembly,
+                typeof(IEntryRepository).GetTypeInfo().Assembly,
+                typeof(EntryRepository).GetTypeInfo().Assembly,
+                typeof(IEntryDataAccess).GetTypeInfo().Assembly,
+                typeof(DK.UOME.Store.UI.DataModel.Entry).GetTypeInfo().Assembly,
+                typeof(EntryDataAccess).GetTypeInfo().Assembly,
+                typeof(MainViewModel).GetTypeInfo().Assembly};
+
+            starter.Configure(compositionAssemblies, null);
         }
     }
 }
