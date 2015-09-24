@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:DesignData="using:DK.UOME.Store.UI.UWP.DesignData"
-    xmlns:CoreConverters="using:DK.Framework.Store.Converters"
-    xmlns:StoreFramework="using:DK.Framework.Store"
+    xmlns:CoreConverters="using:DK.Framework.UWP.Converters"
+    xmlns:StoreFramework="using:DK.Framework.UWP"
     d:DataContext="{d:DesignInstance Type=DesignData:DesignEntryViewModel, IsDesignTimeCreatable=True}">
 
     <Page.Resources>

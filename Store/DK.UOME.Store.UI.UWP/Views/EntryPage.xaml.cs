@@ -1,6 +1,9 @@
-﻿using DK.UOME.Store.PresentationModel.ViewModels;
+﻿using DK.Framework.Core.Interfaces;
+using DK.Framework.UWP.Attributes;
+using DK.UOME.Store.PresentationModel.UWP.ViewModels;
 using DK.UOME.Store.UI.UWP.DesignData;
 using System;
+using System.Composition;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -12,6 +15,8 @@ namespace DK.UOME.Store.UI.UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    [Screen(typeof(IScreen<EntryViewModel>))]
+    [Shared]
     public sealed partial class EntryPage : Page
     {
         public EntryPage()
@@ -25,6 +30,7 @@ namespace DK.UOME.Store.UI.UWP.Views
 #endif
         }
 
+        //LIVETILE
         /*async*/
         void OnSecondaryTilePinButtonClick(object sender, RoutedEventArgs e)
         {

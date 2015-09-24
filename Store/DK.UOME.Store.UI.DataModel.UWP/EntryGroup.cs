@@ -1,7 +1,7 @@
 ﻿using DK.Framework.UWP.Model;
 using System.Collections.ObjectModel;
 
-namespace DK.UOME.Store.UI.DataModel
+namespace DK.UOME.Store.UI.DataModel.UWP
 {
     /// <summary>
     /// A group of entries.

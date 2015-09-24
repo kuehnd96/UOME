@@ -1,6 +1,6 @@
-﻿using DK.UOME.Store.UI.DataModel;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using DK.UOME.Store.UI.DataModel.UWP;
 
 namespace DK.UOME.Store.UI.UWP.Selectors
 {

@@ -3,7 +3,7 @@ using DK.Framework.Core.Interfaces;
 using DK.Framework.UWP.Commands;
 using DK.Framework.UWP.ViewModels;
 using DK.UOME.Repositories.Interfaces;
-using DK.UOME.Store.UI.DataModel;
+using DK.UOME.Store.UI.DataModel.UWP;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -11,7 +11,7 @@ using System.Diagnostics;
 using System.Linq;
 using Windows.UI.Popups;
 
-namespace DK.UOME.Store.PresentationModel.ViewModels
+namespace DK.UOME.Store.PresentationModel.UWP.ViewModels
 {
     /// <summary>
     /// View model for showing entries.

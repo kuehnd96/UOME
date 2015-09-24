@@ -60,11 +60,8 @@
     <Reference Include="DK.Framework.Core">
       <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DK.Framework.Store">
-      <HintPath>..\..\..\..\Lib\DK.Framework.Store.dll</HintPath>
-    </Reference>
-    <Reference Include="DK.Framework.Store.NotificationsExtensions">
-      <HintPath>..\..\..\..\Lib\DK.Framework.Store.NotificationsExtensions.winmd</HintPath>
+    <Reference Include="DK.Framework.UWP">
+      <HintPath>..\..\..\..\Lib\DK.Framework.UWP.dll</HintPath>
     </Reference>
     <Reference Include="System.Composition.AttributedModel">
       <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
@@ -97,14 +94,6 @@
     <ProjectReference Include="..\..\Core\DK.UOME.Repositories.Interfaces\DK.UOME.Repositories.Interfaces.csproj">
       <Project>{715c0be4-caf1-4beb-856e-f8afd6c7cde3}</Project>
       <Name>DK.UOME.Repositories.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DK.UOME.Store.Notifications\DK.UOME.Store.Notifications.csproj">
-      <Project>{7c329a42-9f33-4492-ae30-a1ca78aa9361}</Project>
-      <Name>DK.UOME.Store.Notifications</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DK.UOME.Store.UI.DataModel\DK.UOME.Store.UI.DataModel.csproj">
-      <Project>{cb6c4588-8f23-4b6c-bfdf-3947ce737dc9}</Project>
-      <Name>DK.UOME.Store.UI.DataModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

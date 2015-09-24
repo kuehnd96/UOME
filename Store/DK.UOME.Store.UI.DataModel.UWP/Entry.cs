@@ -3,7 +3,7 @@ using DK.Framework.UWP.Validation;
 using System;
 using System.Runtime.Serialization;
 
-namespace DK.UOME.Store.UI.DataModel
+namespace DK.UOME.Store.UI.DataModel.UWP
 {
     /// <summary>
     /// Basic entry state.

@@ -1,10 +1,6 @@
-﻿using DK.UOME.Store.UI.DataModel;
-using DK.UOME.Store.PresentationModel.ViewModels;
+﻿using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.UI.DataModel.UWP;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DK.UOME.Store.UI.UWP.DesignData
 {

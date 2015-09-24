@@ -1,6 +1,6 @@
 ﻿using DK.Framework.UWP.Model;
-using DK.UOME.Store.PresentationModel.MappingConfigurations.Profiles;
-using DK.UOME.Store.UI.DataModel;
+using DK.UOME.Store.PresentationModel.UWP.MappingConfigurations.Profiles;
+using DK.UOME.Store.UI.DataModel.UWP;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ using System.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DK.UOME.Store.PresentationModel.ViewModels
+namespace DK.UOME.Store.PresentationModel.UWP.ViewModels
 {
     /// <summary>
     /// Logic for the search functionality.

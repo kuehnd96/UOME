@@ -44,10 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DK.Framework.Core">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="DK.Framework.Web">
-      <HintPath>..\..\..\..\..\Lib\DK.Framework.Web.dll</HintPath>
+      <HintPath>..\..\..\..\Lib\DK.Framework.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Composition.AttributedModel, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">

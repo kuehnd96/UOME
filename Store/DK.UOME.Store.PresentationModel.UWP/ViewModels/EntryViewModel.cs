@@ -2,7 +2,7 @@
 using DK.Framework.UWP.Commands;
 using DK.Framework.UWP.ViewModels;
 using DK.UOME.Repositories.Interfaces;
-using DK.UOME.Store.PresentationModel.MappingConfigurations.Profiles;
+using DK.UOME.Store.PresentationModel.UWP.MappingConfigurations.Profiles;
 using System.Composition;
 using System.Diagnostics;
 using System.Linq;
@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using StorageModel = DK.UOME.DataAccess.DataModel;
-using UIModel = DK.UOME.Store.UI.DataModel;
+using UIModel = DK.UOME.Store.UI.DataModel.UWP;
 
-namespace DK.UOME.Store.PresentationModel.ViewModels
+namespace DK.UOME.Store.PresentationModel.UWP.ViewModels
 {
     /// <summary>
     /// View logic for an entry editing screen.

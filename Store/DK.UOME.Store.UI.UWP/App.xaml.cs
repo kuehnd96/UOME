@@ -1,11 +1,13 @@
 ﻿using DK.Framework.Core.Interfaces;
-using DK.Framework.Store;
+using DK.Framework.UWP;
+using DK.Framework.UWP.Exceptions;
+using DK.Framework.UWP.ViewModels;
 using DK.UOME.DataAccess.Interfaces;
 using DK.UOME.Repositories.Interfaces;
 using DK.UOME.Store.DataAccess.Local.UWP;
-using DK.UOME.Store.PresentationModel.MappingConfigurations;
-using DK.UOME.Store.PresentationModel.ViewModels;
-using DK.UOME.Store.Repositories;
+using DK.UOME.Store.PresentationModel.UWP.MappingConfigurations;
+using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.Repositories.UWP;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -92,7 +94,7 @@ namespace DK.UOME.Store.UI.UWP
                     {
                         await SuspensionManager.RestoreAsync();
                     }
-                    catch (Framework.Store.Exceptions.SuspensionManagerException)
+                    catch (SuspensionManagerException)
                     {
                         //Something went wrong restoring state.
                         //Assume there is no state and continue
@@ -149,7 +151,7 @@ namespace DK.UOME.Store.UI.UWP
                 typeof(IEntryRepository).GetTypeInfo().Assembly,
                 typeof(EntryRepository).GetTypeInfo().Assembly,
                 typeof(IEntryDataAccess).GetTypeInfo().Assembly,
-                typeof(DK.UOME.Store.UI.DataModel.Entry).GetTypeInfo().Assembly,
+                typeof(DK.UOME.Store.UI.DataModel.UWP.Entry).GetTypeInfo().Assembly,
                 typeof(EntryDataAccess).GetTypeInfo().Assembly,
                 typeof(MainViewModel).GetTypeInfo().Assembly};
 

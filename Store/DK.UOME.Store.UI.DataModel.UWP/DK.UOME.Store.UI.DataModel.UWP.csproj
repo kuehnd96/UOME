@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7B4ED77-9D3A-48A7-9EEB-450FA34240FA}</ProjectGuid>
+    <ProjectGuid>{5FFFB6D7-29D9-416A-83BB-A75E84D275E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DK.UOME.Store.DataAccess.Local.UWP</RootNamespace>
-    <AssemblyName>DK.UOME.Store.DataAccess.Local.UWP</AssemblyName>
+    <RootNamespace>DK.UOME.Store.UI.DataModel.UWP</RootNamespace>
+    <AssemblyName>DK.UOME.Store.UI.DataModel.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -46,7 +46,6 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -58,7 +57,6 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -70,7 +68,6 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
@@ -82,7 +79,6 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -94,7 +90,6 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -106,38 +101,27 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntryDataAccess.cs" />
-    <Compile Include="EntryEntity.cs" />
-    <Compile Include="PinnedEntry.cs" />
+    <Compile Include="BorrowedEntry.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="EntryGroup.cs" />
+    <Compile Include="EntryType.cs" />
+    <Compile Include="LoanedEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\DK.UOME.Store.DataAccess.Local.UWP.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.DataModel\DK.UOME.DataAccess.DataModel.csproj">
-      <Project>{0f8f1a45-7d06-42b2-873d-4f396769c0dc}</Project>
-      <Name>DK.UOME.DataAccess.DataModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\DK.UOME.DataAccess.Interfaces\DK.UOME.DataAccess.Interfaces.csproj">
-      <Project>{86e10323-86a9-4838-ae25-25005b3396e2}</Project>
-      <Name>DK.UOME.DataAccess.Interfaces</Name>
-    </ProjectReference>
+    <Content Include="Properties\DK.UOME.Store.UI.DataModel.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DK.Framework.Core">
       <HintPath>..\..\..\..\Lib\DK.Framework.Core.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="SQLite.UAP.2015, Version=3.8.11.1">
-      <Name>SQLite for Universal App Platform</Name>
-    </SDKReference>
+    <Reference Include="DK.Framework.UWP">
+      <HintPath>..\..\..\..\Lib\DK.Framework.UWP.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

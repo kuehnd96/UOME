@@ -1,9 +1,9 @@
-﻿using UIModel = DK.UOME.Store.UI.DataModel;
+﻿using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.UI.DataModel.UWP;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DK.UOME.Store.UI.DataModel;
-using DK.UOME.Store.PresentationModel.ViewModels;
+using UIModel = DK.UOME.Store.UI.DataModel.UWP;
 
 namespace DK.UOME.Store.UI.UWP.DesignData
 {

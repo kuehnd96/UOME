@@ -1,20 +1,17 @@
 ﻿using DK.Framework.Core;
 using DK.Framework.Core.Interfaces;
-using UIModel = DK.UOME.Store.UI.DataModel;
-using StorageModel = DK.UOME.DataAccess.DataModel;
+using UIModel = DK.UOME.Store.UI.DataModel.UWP;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Composition;
 using System.Linq;
 using System.Threading.Tasks;
-using DK.UOME.Store.UI.DataModel;
-using DK.UOME.Store.PresentationModel.MappingConfigurations.Profiles;
-using Windows.UI.Notifications;
+using DK.UOME.Store.PresentationModel.UWP.MappingConfigurations.Profiles;
 using DK.Framework.UWP.Commands;
 using DK.Framework.UWP.Model;
 
-namespace DK.UOME.Store.PresentationModel.ViewModels
+namespace DK.UOME.Store.PresentationModel.UWP.ViewModels
 {
     /// <summary>
     /// View logic for the main landing page of entries.
@@ -145,7 +142,7 @@ namespace DK.UOME.Store.PresentationModel.ViewModels
             //SendNotifications(rawEntries, pinnedEntyIds);
         }
 
-        protected EntryGroup CreateEntryGroup(IEnumerable<UIModel.Entry> entries, string groupName, UIModel.EntryType? groupType = null, string icon = null)
+        protected UIModel.EntryGroup CreateEntryGroup(IEnumerable<UIModel.Entry> entries, string groupName, UIModel.EntryType? groupType = null, string icon = null)
         {
             var entryGroup = new UIModel.EntryGroup() { Name = groupName };
             entryGroup.LandingItems = new ObservableCollection<LandingItem<UIModel.Entry>>(ConvertEntriesToLandingItems(entries.Take(EntryMax)));

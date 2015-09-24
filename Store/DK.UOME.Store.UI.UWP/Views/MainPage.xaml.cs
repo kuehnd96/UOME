@@ -1,18 +1,11 @@
-﻿using DK.UOME.Store.UI.UWP.DesignData;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using DK.Framework.Core.Interfaces;
+using DK.Framework.UWP.Attributes;
+using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.UI.UWP.DesignData;
+using System.Composition;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,6 +14,8 @@ namespace DK.UOME.Store.UI.UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    [Screen(typeof(IScreen<MainViewModel>))]
+    [Shared]
     public sealed partial class MainPage : Page
     {
         public MainPage()
