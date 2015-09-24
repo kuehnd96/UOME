@@ -1,9 +1,10 @@
 ﻿{
   "dependencies": {
     "AutoMapper": "4.0.4",
-    "Microsoft.ApplicationInsights": "1.0.0",
-    "Microsoft.ApplicationInsights.PersistenceChannel": "1.0.0",
-    "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
+    "IBehaviorPortable": "1.0.0",
+    "Microsoft.ApplicationInsights": "1.2.0",
+    "Microsoft.ApplicationInsights.PersistenceChannel": "1.2.0",
+    "Microsoft.ApplicationInsights.WindowsApps": "1.1.0",
     "Microsoft.Composition": "1.0.30",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
