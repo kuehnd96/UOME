@@ -1,4 +1,4 @@
-﻿<Page
+﻿<StoreFramework:BaseStorePage
     x:Class="DK.UOME.Store.UI.UWP.Views.EntryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -96,4 +96,4 @@
 
         </Grid>
     </ScrollViewer>
-</Page>
+</StoreFramework:BaseStorePage>

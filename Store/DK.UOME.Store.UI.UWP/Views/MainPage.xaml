@@ -1,4 +1,4 @@
-﻿<Page
+﻿<StoreFramework:BaseStorePage
     x:Class="DK.UOME.Store.UI.UWP.Views.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,6 +6,7 @@
     xmlns:UIModel="using:DK.UOME.Store.UI.DataModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:StoreFramework="using:DK.Framework.UWP"
     mc:Ignorable="d"
     xmlns:DesignData="using:DK.UOME.Store.UI.UWP.DesignData"
     d:DataContext="{d:DesignInstance Type=DesignData:DesignMainViewModel, IsDesignTimeCreatable=True}">
@@ -93,4 +94,4 @@
 
         </Grid>
     </ScrollViewer>
-</Page>
+</StoreFramework:BaseStorePage>

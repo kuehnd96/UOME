@@ -1,8 +1,12 @@
 ﻿using DK.Framework.Core.Interfaces;
+using DK.Framework.UWP;
 using DK.Framework.UWP.Attributes;
 using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.UI.DataModel.UWP;
 using DK.UOME.Store.UI.UWP.DesignData;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Composition;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -17,16 +21,45 @@ namespace DK.UOME.Store.UI.UWP.Views
     /// </summary>
     [Screen(typeof(IScreen<EntryViewModel>))]
     [Shared]
-    public sealed partial class EntryPage : Page
+    public sealed partial class EntryPage : BaseStorePage, IScreen<EntryViewModel>
     {
+        const string EntryStateKey = "Entry";
+        const string LabelStateKey = "Label";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public EntryViewModel ViewModel
+        {
+            get { return base.DataContext as EntryViewModel; }
+            set { base.DataContext = value; }
+        }
+
+        public Type ScreenType
+        {
+            get { return typeof(EntryPage); }
+        }
+
+        public async void Start(Action completed)
+        {
+            await ViewModel.Start();
+
+            completed();
+        }
+
+        public void End(Action completed)
+        {
+            completed();
+        }
+
+        public string Location { get { return "/EntryPage.xaml"; } }
+
         public EntryPage()
         {
             this.InitializeComponent();
 
 #if DEBUG
-            var viewModel = new DesignEntryViewModel();
-            viewModel.Entry.IsTrackingChanges = true;
-            this.DataContext = viewModel;
+            ViewModel = new DesignEntryViewModel();
+            ViewModel.Entry.IsTrackingChanges = true;
 #endif
         }
 
@@ -142,6 +175,21 @@ namespace DK.UOME.Store.UI.UWP.Views
                 {
                     viewModel.CancelCommand.Execute(null);
                 }
+            }
+        }
+
+        protected override void SaveState(Dictionary<string, object> pageState)
+        {
+            pageState[EntryStateKey] = ViewModel.Entry;
+            pageState[LabelStateKey] = ViewModel.Label;
+        }
+
+        protected override void LoadState(object navigationParameter, Dictionary<string, object> pageState)
+        {
+            if (pageState != null)
+            {
+                ViewModel.Entry = (Entry)pageState[EntryStateKey];
+                ViewModel.Label = pageState[LabelStateKey].ToString();
             }
         }
     }
