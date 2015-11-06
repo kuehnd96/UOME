@@ -17,7 +17,7 @@
 
         <!-- Find a way to reuse more of these tempaltes -->
         <DataTemplate x:Key="BorrowedEntryTemplate">
-            <Grid Margin="5, 10">
+            <Grid Margin="5, 15">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -45,7 +45,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="LoanedEntryTemplate">
-            <Grid Margin="5, 10">
+            <Grid Margin="5, 15">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>

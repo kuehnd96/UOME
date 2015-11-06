@@ -18,8 +18,8 @@ namespace DK.UOME.Store.UI.UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    [Screen(typeof(IScreen<MainViewModel>))]
-    [Shared]
+    //[Screen(typeof(IScreen<MainViewModel>))]
+    //[Shared]
     public sealed partial class MainPage : BaseStorePage, IScreen<MainViewModel>
     {
         public MainViewModel ViewModel
