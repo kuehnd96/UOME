@@ -155,7 +155,7 @@ namespace DK.UOME.Store.PresentationModel.UWP.ViewModels
                 await LoadEntry();
             }
 
-            await GetPinnedStatus();
+            //await GetPinnedStatus();
         }
 
         async Task GetPinnedStatus()

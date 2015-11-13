@@ -1,15 +1,15 @@
 ﻿using DK.Framework.Core.Interfaces;
+using DK.Framework.UWP;
 using DK.Framework.UWP.Attributes;
 using DK.UOME.Store.PresentationModel.UWP.ViewModels;
+using DK.UOME.Store.UI.DataModel.UWP;
 using DK.UOME.Store.UI.UWP.DesignData;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Composition;
 using System.Linq;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using System;
-using System.ComponentModel;
-using DK.Framework.UWP;
-using System.Collections.Generic;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,8 +18,8 @@ namespace DK.UOME.Store.UI.UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    //[Screen(typeof(IScreen<MainViewModel>))]
-    //[Shared]
+    [Screen(typeof(IScreen<MainViewModel>))]
+    [Shared]
     public sealed partial class MainPage : BaseStorePage, IScreen<MainViewModel>
     {
         public MainViewModel ViewModel
@@ -53,29 +53,6 @@ namespace DK.UOME.Store.UI.UWP.Views
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnMenuButtonClick(object sender, RoutedEventArgs e)
-        {
-            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
-        }
-
-        private void OnNavListSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SplitView.IsPaneOpen = false;
-        }
-
-        private void OnNavListLoaded(object sender, RoutedEventArgs e)
-        {
-            //NOTE: Why does this run twice?
-
-            var listView = sender as ListView;
-
-            if ((listView != null) &&
-                (listView.Items.Any()))
-            {
-                listView.SelectedIndex = 0;
-            }
-        }
 
         public async void Start(Action completed)
         {
@@ -115,6 +92,16 @@ namespace DK.UOME.Store.UI.UWP.Views
         protected override void SaveState(Dictionary<string, object> pageState)
         {
             // No state to save on this page
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedEntry = e.AddedItems.FirstOrDefault();
+
+            if (selectedEntry != null)
+            {
+                ViewModel.NavigateEntry(selectedEntry as Entry);
+            }
         }
     }
 }
